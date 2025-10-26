@@ -25,6 +25,7 @@ Output: 2*/
         if(!result.contains(number)){
             result.add(number);
         }
+        System.out.println(result);
         return result.size();
     }
 

@@ -18,8 +18,8 @@ true*/
         }
         int sum1=0;
         int sum2=0;
-        int mul1=0;
-        int mul2=0;
+        int mul1=1;
+        int mul2=1;
         for(int i=0;i<array1.length;i++){
             sum1 += array1[i];
             sum2 +=array2[i];
