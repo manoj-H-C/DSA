@@ -11,15 +11,15 @@ Example
 int[] intArray = {1,2,3,4,5,6};
 isUnique(intArray) // true*/
 
-    public static boolean isUnique(int[] arr) {
-        Set<Integer> result = new HashSet<>();
-        for(int num: arr){
-            if(!result.add(num)){
-                return false;
-            }
-        }
-        return true;
-    }
+//    public static boolean isUnique(int[] arr) {
+//        Set<Integer> result = new HashSet<>();
+//        for(int num: arr){
+//            if(!result.add(num)){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
 //    public boolean isUnique(int[] intArray) {
 //        // TODO
@@ -33,9 +33,21 @@ isUnique(intArray) // true*/
 //        return true;
 //    }
 
+    public static boolean isUnique(int[] intArray) {
+        int i=0;
+        for(int j=i+1; j<intArray.length; j++){
+            if(intArray[i]!=intArray[j]){
+                i++;
+            }else {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
-        int[] intArray = {1,2,3,4,5,6};
+        int[] intArray = {1,2,3,4,5,6,6};
         System.out.println(isUnique(intArray));
     }
 }
