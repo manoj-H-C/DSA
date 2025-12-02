@@ -1,4 +1,4 @@
-package ArraysAndHasshing;
+package strings;
 
 import java.util.Arrays;
 

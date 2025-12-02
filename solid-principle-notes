@@ -1,0 +1,250 @@
+What are the SOLID Principles in Java
+SOLID principles are an object-oriented approach to software structure design that is used in Java. Robert C. Martin is the one who came up with the idea (also known as Uncle Bob). These five principles have revolutionized the field of object-oriented programming, as well as the way software, is written. It also guarantees that the software is modular, understandable, debuggable, and refactorable.
+
+What is the meaning of SOLID?
+S: Single responsibility principle
+O: Open-closed principle
+L: Liskov substitution principle
+I: Interface segregation principle
+D: Dependency inversion principle
+Benefits of using SOLID principles
+When you use all the principles of S.O.L.I.D in a combined manner, it becomes easier for you to develop software that can be managed easily.
+
+Clean: SOLID principles make code clean and standard code.
+Maintainable: with the help of SOLID principles our code becomes more manageable and easy to maintain.
+Scalable: Easy to refactor or change code.
+Redundancy: SOLID principles avoid redundant code.
+Testable: can be easily unit tested.
+Readable: SOLID principles make the code easy and readable.
+Independent: code becomes independent by reducing dependencies.
+Reusable: code becomes reusable.
+SOLID PRINCIPLES JAVA
+SOLID PRINCIPLES JAVA
+Let’s understand all 5 principles(SOLID) one by one that is:
+
+1. Single responsibility principle:
+According to the single responsibility principle, each Java class must perform only one function. Multiple capabilities in a single class mashup the code, and any changes made to the code may influence the entire class. It specifies the code and makes it simple to maintain.
+
+Let’s understand this by using an example:
+
+Suppose we have a class FinalExam that has 3 methods that perform 3 operations AddQuestion(), ExpectedAnswer(), Marksdistribution(). Now all these 3 methods perform different actions. By using the single responsibility principle, we can separate these functionalities into three separate classes to fulfil the goal of the principle.
+
+Before implementing the Single responsibility principle:
+
+public class FinalExam{
+public void AddQuestion(){
+//functionality of the method
+}
+public void ExpectedAnswer(){
+//functionality of the method
+}
+public void Marksdistribution(){
+//functionality of the method
+}
+}
+The point of implementing the Single responsibility principle is not that a class can’t have more than one method but it’s recommended to use a single method for each class so that multiple capabilities in a single class don’t mash up the code, and any changes made to the code may influence the entire class. Using a single responsibility principle makes code easy to maintain.
+
+After implementing the Single responsibility principle:
+
+public class FinalExam{
+public void AddQuestion(){
+//functionality of the method
+}
+}
+public class Answer{
+public void ExpectedAnswer(){
+//functionality of the method
+}
+}
+public class Marks{
+public void Marksdistribution(){
+//functionality of the method
+}
+}
+Why is this Principle Required?
+
+Testing is made easier when the Single Responsibility Principle is implemented. The class will have fewer test cases with a single responsibility. Because there is less functionality, there are fewer dependencies on other classes. Because smaller, well-purposed classes are easier to search, it leads to better code organization.
+
+2. Open-Closed Principle
+According to this idea, a class should be created in such a way that it does its task flawlessly without the expectation that it will be changed in the future. As a result, the class should stay closed to alteration, but it should be possible to extend it. Extending the class can be done in a variety of ways, including
+
+Inheriting from class.
+Overwriting the required behaviour from the class.
+Extending certain behaviour of the class.
+Let’s understand it by using an example:
+
+Suppose, StudentInfo is a class and it has the method Streamname() that returns the name of the stream.
+
+public class StudentInfo
+{
+public String Streamname(Student st)
+{
+if (st instanceof Science)
+{
+return st.getStream();
+if (st instanceof Commerce)
+{
+return st.getStream();
+}
+}
+If we want to add another subclass named arts, simply, we add one more if statement that violates the open-closed principle. The only way to add the subclass and achieve the goal of principle is by overriding the Streamname() method, as we have shown below.
+
+public class StudentInfo
+{
+public String Streamname()
+{
+//functionality
+}
+}
+public class Science extends StudentInfo
+{
+public String Streamname()
+{
+return this.getValue();
+}
+public class Commerce extends StudentInfo
+{
+public String Streamname()
+{
+return this.getValue();
+}
+public class arts extends StudentInfo
+{
+public String Streamname()
+{
+return this.getValue();
+}
+}
+Why is this principle required?
+
+Because classes may come from third-party libraries, OCP is essential. We should be able to extend those classes without having to worry about whether or not the base classes will be able to support our expansions. However, inheritance may result in subclasses that are dependent on the implementation of the base class. The use of interfaces is recommended to avoid this. Loose coupling occurs as a result of the added abstraction.
+
+3. Liskov substitution principle
+Barbara Liskov proposed the Liskov Substitution Principle (LSP). It pertains to inheritance in the sense that derived classes must be 100% interchangeable with their base classes. To put it another way, if class A is a subtype of class B, we should be able to substitute B with A without affecting the program’s behaviour.
+
+It goes beyond the open-close principle to look at how a superclass and its subclasses behave. Unless there is a compelling reason to do otherwise, we should build the classes to preserve the property. Let’s understand it with an example:
+
+public class Rectangle {
+    private double height;
+    private double width;
+    public void setHeight(double h) { height = h; }
+    public void setWidht(double w) { width = w; }
+    ...
+}
+public class Square extends Rectangle {
+    public void setHeight(double h) {
+        super.setHeight(h);
+        super.setWidth(h);
+    }
+    public void setWidth(double w) {
+        super.setHeight(w);
+        super.setWidth(w);
+    }
+}
+The above classes do not obey LSP because you cannot replace the Rectangle base class with its derived class Square. The Square class has extra constraints, i.e., the height and width must be the same. Therefore, substituting Rectangle with Square class may result in unexpected behaviour.
+
+Why is this principle is required?
+
+This prevents inheritance from being abused. It assists us in adhering to the “is-a” relationship. Subclasses must also adhere to a contract established by the base class. In this way, it’s similar to Bertrand Meyer’s Design by Contract. It’s easy to think of a circle as a form of an ellipse, yet circles lack two foci or major/minor axes.
+
+4. Interface segregation principle
+According to the interface segregation concept, a client should never be required to implement an interface that it does not use, or to rely on any method that it does not use. So, fundamentally, the interface segregation principles are that you favour small, client-specific interfaces over monolithic, larger interfaces. In other words, forcing the client to rely on something they don’t require is not a good idea. In short, No client should be forced to depend on methods that it does not use.
+
+Let’s understand it with the help of an example:
+
+Suppose there’s an interface for a vehicle and a Bike class:
+
+public interface Vehicle {
+    public void drive();
+    public void stop();
+    public void refuel();
+    public void openDoors();
+}
+public class Bike implements Vehicle {
+
+    // Can be implemented
+    public void drive() {...}
+    public void stop() {...}
+    public void refuel() {...}
+
+    // Can not be implemented
+    public void openDoors() {...}
+}
+As you can see, a Bike class should not implement the openDoors() method because a bike does not have any doors! To address this, ISP offers to break down the interfaces into several, small coherent interfaces so that no class is required to implement any interfaces (and thus methods) that it does not require.
+
+After implying the interface segregation principle
+
+public interface Driving {
+    public void drive();
+   }
+public interface stops{
+public void stop();
+}
+public interface refueling{
+public void refuel();
+}
+public interface opening{
+public void openDoors();
+
+}
+public class Bike implements Driving,stops,refueling {
+    public void drive() {...}
+    public void stop() {...}
+ public void refuel() {...}
+     }
+Why is this principle required?
+
+The Interface Segregation Principle makes our code more readable and maintainable. We’ve pared down our class implementation to simplify the operations that are required, with no extra or extraneous code. As we only use that method that is required and can leave other methods.
+
+5. Dependency Inversion Principle
+The Dependency Inversion Principle (DIP) asserts that rather than real implementations, we should rely on abstractions (interfaces and abstract classes) (classes). Details should not be dependent on abstractions; rather, abstractions should be dependent on details.
+
+Let’s understand it by using an example:
+
+We have a class WindowMachine that contains keyboard and monitor classes inside it and we create instances of monitor and keyboard class inside WindowMachine constructor to use them.
+
+public class WindowsMachine
+{
+public final keyboard;
+public final monitor;
+public WindowsMachine()
+{
+monitor = new monitor();  //instance of monitor class
+keyboard = new keyboard(); //instance of keyboard class
+}
+}
+But the problem with this code is that now all three classes are tightly coupled to each other which makes it hard to test the WindowMachine class let’s make this code loosely coupled with the help of the Dependency Inversion principle.
+
+To make the code loosely coupled, we decouple the WindowsMachine from the keyboard by using the Keyboard interface and this keyword.
+
+public interface Keyboard
+{
+//functionality
+}
+public class WindowsMachine
+{
+private final Keyboard keyboard;
+private final Monitor monitor;
+public WindowsMachine(Keyboard keyboard, Monitor monitor)
+{
+this.keyboard = keyboard;
+this.monitor = monitor;
+}
+}
+
+Why is this principle is required?
+
+It allows a programmer to remove hardcoded dependencies so that the application becomes loosely coupled and extendable.
+
+Conclusion
+By now, we have a good understanding of what Java, the Full form of SOLID, Solid principles in java is, the benefits of using SOLID principles, all five SOLID principles(Single responsibility principle, Open/closed principle, Liskov substitution principle, Interface Segregation Principle, Dependency Inversion principle) are in detail. In simple terms, SOLID is a systematic design strategy that assures that your program is modular, understandable, debuggable, and refactorable. Following SOLID helps developers and maintainers save time and effort in both development and maintenance. SOLID helps you construct long-lasting software by preventing your code from becoming inflexible and fragile.
+
+Frequently Asked Questions
+Q.1: How are solid principles implemented in Java?
+Ans: To implement SOLID principles in Java you need to understand basic OOP(object-oriented programming) concepts like inheritance, polymorphism, abstraction, and encapsulation and then you can use these 5 SOLID principles in your Java code.
+
+Q.2: Are SOLID principles still relevant?
+Ans: Yes, using SOLID principles is still relevant as using SOLID principles makes your code maintainable, testable, reusable, and scalable. It reduces the dependencies so that a block of code can be changed without affecting the other code blocks.
+
+Q.3: How do you write SOLID code?
+Ans: The key principle of writing SOLID code is using the single responsibility principle, open/closed principle, Liskov substitution principle, Interface segregation principle, and dependency inversion principle with the help of these principles you can write solid code.

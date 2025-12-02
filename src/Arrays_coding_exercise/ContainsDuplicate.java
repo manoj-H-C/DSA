@@ -1,4 +1,4 @@
-package ArraysAndHasshing;
+package Arrays_coding_exercise;
 
 import java.util.HashSet;
 import java.util.Set;
