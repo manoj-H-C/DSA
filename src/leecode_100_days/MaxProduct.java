@@ -1,6 +1,4 @@
-package Arrays_coding_exercise;
-
-import java.util.Arrays;
+package leecode_100_days;
 
 public class MaxProduct {
 
@@ -45,7 +43,7 @@ maxProduct(intArray) // (40,50)*/
 //        //return (first*second);
 //    }
 
-public static String maxProduct(int[] intArray) {
+public static int maxProduct(int[] intArray) {
     int first = Integer.MIN_VALUE;
     int second = Integer.MIN_VALUE;
 
@@ -58,7 +56,7 @@ public static String maxProduct(int[] intArray) {
         }
     }
 
-    return second + ", " + first;
+    return (second-1) * (first-1);
 }
 
     public static void main(String[] args) {

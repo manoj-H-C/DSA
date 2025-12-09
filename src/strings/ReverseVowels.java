@@ -1,0 +1,39 @@
+package strings;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class ReverseVowels {
+
+    public static void main(String[] args) {
+        String value ="manoj";
+        System.out.println(reverseVowels(value));
+    }
+
+    public static final   HashSet<Character> arr = new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+    public static String reverseVowels(String s){
+        char[] chars = s.toCharArray();
+        int left=0;
+        int right=s.length()-1;
+
+        while (left<right){
+
+            while (left<right && !arr.contains(chars[left])){
+                left++;
+            }
+
+            while (left<right && !arr.contains(chars[right])){
+                right--;
+            }
+
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+
+            left++;
+            right--;
+        }
+
+        return new String(chars);
+    }
+}
