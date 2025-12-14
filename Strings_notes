@@ -1,0 +1,20 @@
+String s = "leetcode";
+
+// substring
+System.out.println(s.substring(0, 4)); // "leet"
+
+// split
+String[] words = "a,b,c".split(",");
+System.out.println(Arrays.toString(words)); // ["a", "b", "c"]
+
+// charAt
+System.out.println(s.charAt(2)); // 'e'
+
+// equals
+System.out.println(s.equals("leetcode")); // true
+
+// indexOf
+System.out.println(s.indexOf('t')); // 3
+System.out.println(s.indexOf("code")); // 4
+
+

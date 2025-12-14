@@ -32,8 +32,20 @@ Note that buying on day 2 and selling on day 1 is not allowed because you must b
         return max;
     }
 
+    public static int maxProfit1(int[] prices) {
+        int min=prices[0];
+        int max=0;
+        for(int i=1;i<prices.length;i++){
+            int total= prices[i] - min;
+            if(total>max) max=total;
+            min=Math.min(prices[i], min);
+        }
+        return max;
+    }
     public static void main(String[] args) {
         int[] prices = {7,1,5,3,6,4};
         System.out.println(BuyAndSellStock.maxProfit(prices));
+        System.out.println("++++");
+        System.out.println(maxProfit1(prices));
     }
 }

@@ -1,0 +1,18 @@
+int[] nums = {3,1,4,2};
+
+// sort
+Arrays.sort(nums);
+System.out.println(Arrays.toString(nums)); // [1,2,3,4]
+
+// copyOf
+int[] copy = Arrays.copyOf(nums, nums.length);
+System.out.println(Arrays.toString(copy)); // [1,2,3,4]
+
+// binarySearch (array must be sorted)
+int idx = Arrays.binarySearch(nums, 3);
+System.out.println(idx); // 2
+
+// fill
+int[] arr = new int[5];
+Arrays.fill(arr, 7);
+System.out.println(Arrays.toString(arr)); // [7,7,7,7,7]
